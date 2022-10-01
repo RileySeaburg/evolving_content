@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.card {
+  @apply p-4 bg-blue-200 text-blue-800 rounded-lg;
+}
+
+.card .title {
+  @apply text-2xl tracking-tight font-bold;
+}
+
+.card .description {
+  @apply pt-4 text-lg font-medium;
+}
+
+.card .description a {
+  @apply underline text-blue-600;
+}
