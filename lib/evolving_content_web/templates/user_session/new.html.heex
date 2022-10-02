@@ -1,0 +1,37 @@
+<div class="h-full bg-gray-50">
+  <div class="flex flex-col min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <h1 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Log in</h1>
+
+    <.form let={f} for={@conn} action={Routes.user_session_path(@conn, :create)} as={:user} class="mt-8 space-y-6">
+      <%= if @error_message do %>
+      <div class="alert alert-danger">
+        <p><%= @error_message %></p>
+      </div>
+
+      <% end %>
+      <div class="-space-y-px rounded-md shadow-sm">
+        <%= label f, :email, class: "sr-only" %>
+        <%= email_input f, :email, placeholder: "Ex: info@evolvingsoftware.io", required: true, class: "relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+
+        <%= label f, :password, class: "sr-only" %>
+        <%= password_input f, :password, placeholder: "Ex: password123", required: true, class: "relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+
+      </div>
+      <div class="flex items-center justify-between flex-col">
+        <div>
+          <div class="flex items-center">
+            <%= checkbox f, :remember_me %>
+            <%= label f, :remember_me,"Keep me logged in for 60 days.", class: "ml-6" %>
+          </div>
+          <div>
+            <%= submit "Log in", class: "group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+          </div>
+        </div>
+        <p>
+          <%= link "Register", to: Routes.user_registration_path(@conn, :new) %> |
+          <%= link "Forgot your password?", to: Routes.user_reset_password_path(@conn, :new) %>
+        </p>
+      </div>
+    </.form>
+  </div>
+</div>
