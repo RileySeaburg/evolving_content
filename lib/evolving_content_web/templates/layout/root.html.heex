@@ -11,21 +11,14 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js" )}></script>
   </head>
 
-  <body>
-    <header class="bg-teal-400">
-      <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex w-full items-center justify-between border-b border-indigo-500 py-6 lg:border-none">
-          <div class='flex items-center'>
-            <a href="https://evolvingsoftware.io/" class="phx-logo">
+  <body class="flex flex-col items-center">
+    <header class="relative overflow-hidden bg-white w-full">
+      <nav class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl ">
+        <div class="flex w-full items-center border-b border-indigo-500 py-6 lg:border-none">
+          <div class='flex items-center flex-row justify-between w-full'>
+            <a href="/" class="w-40">
               <img src={Routes.static_path(@conn, "/images/evolving.png" )} alt="Evolving Software Logo" />
             </a>
-            <div class="ml-10 hidden space-x-8 lg:block">
-              <a class="text-base font-medium text-white hover:text-indigo-50"
-                href="https://hexdocs.pm/phoenix/overview.html">Get Started</a>
-              <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home), class: "text-base font-medium text-white hover:text-indigo-50" %>
-              <% end %>
-            </div>
           </div>
           <%= render "_user_menu.html", assigns %>
         </div>
